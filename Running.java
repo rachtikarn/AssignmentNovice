@@ -1,24 +1,39 @@
-import java.util.Scanner;    
+import java.util.Scanner;
+//import Novice.Thief;
 
-    public class Running{
-        private Scanner input;
-        int state;
-        int addItem;
-        private boolean run;
-
+public class Running{
+    private Scanner input;
+    int addjob;
+    int state;
+    int addItem;
+    private boolean run;
+    private String name;
+    private Novice novice;
+       
     public Running(){
         run = true;
         input = new Scanner(System.in);
     }
     public void run(){
         System.out.print("\nPlease your charector name : ");
-        Novice novice = new Novice(input.nextLine());
+        novice = new Novice(input.nextLine());
+        System.out.print("\n");
+        System.out.println("Please your job");
+        System.out.println("1 >>> Swordman");
+        System.out.println("2 >>> Thief");
+        System.out.print("Prease enter : ");
+        addjob = input.nextInt();
+        if(addjob == 1){
+            Swordman swordman = new Swordman("Swordman");
+        }
+        else if(addjob == 2){
+            Thief thief = new Thief("Thief");
+        }
         while(run){
             System.out.println("\nWhat do you want?");
             System.out.println("1 >>> Add Item");
             System.out.println("2 >>> Show Item");
             System.out.println("3 >>> Show info");
-            //System.out.println("4 >>> Use Item");
             System.out.println("0 >>> Exit");
             System.out.print("Prease enter : ");
             state = input.nextInt();
@@ -44,15 +59,26 @@ import java.util.Scanner;
                 novice.showItems();
             }
             else if(state == 3){
-                novice.showInfo();
+                if(addjob == 1){
+                    //Swordman swordman = new Swordman(name);
+                    novice.swordmanHP(0);
+                    novice.allEXP(0);
+                    novice.allMANA(0);
+                    novice.showInfo();
+                }
+                else if(addjob == 2){
+                    novice.thiefHP(0);
+                    novice.allEXP(0);
+                    novice.allMANA(0);
+                    novice.showInfo();
+                }
             }
-            /*else if(state == 4){
-                
-            }*/
             else if(state == 0){
                 run = false;
                 System.out.println("Good bye, See you next time.");
             }
         }
     }
-    }
+}
+       
+    

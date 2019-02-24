@@ -9,12 +9,22 @@ public class Bag{
         limit = 10;
     }
     public void addItem(String name){
-        this.items.add(new Item(name));
+        if(name.equals("Hamberger")){
+            this.items.add(new Hamberger(name));
+        }
+        else if(name.equals("Water")){
+            this.items.add(new Water(name));
+        }
+        else if(name.equals("Book")){
+            this.items.add(new Book(name));
+        }
     }
     public void showItem(){
+        System.out.println("------------------");
         for(int i=0; i<items.size(); i++){
             items.get(i).show();
         }
+        System.out.println("------------------");
     }
     
     

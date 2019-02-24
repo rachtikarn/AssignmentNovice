@@ -5,23 +5,11 @@ public class Item{
     private int hp;
     private int mana;
 
-    public Item (String name){
+    public Item (String name,int exp, int hp, int mana){
         this.name=name;
-        if(this.name.equals("Hamberger")){
-            this.exp =  0;
-            this.hp = 200;
-            this.mana = 0; 
-        }
-        else if(this.name.equals("Water")){
-            this.exp = 0;
-            this.hp = 0;
-            this.mana = 100; 
-        }
-        else if(this.name.equals("Book")){
-            this.exp = 300;
-            this.hp = 0;
-            this.mana = 0; 
-        }
+        this.exp=exp;
+        this.hp=hp;
+        this.mana=mana;
     }
     public void show(){
         System.out.println("Name : "+this.name);
@@ -30,5 +18,27 @@ public class Item{
         System.out.println("Mana : "+this.mana);
         System.out.print("\n");
     }
-
 }
+
+class Hamberger extends Item{
+
+    public Hamberger(String name){
+        super(name, 0, 200, 0);
+    }
+}
+
+class Water extends Item{
+
+    public Water(String name){
+        super(name, 0, 0, 200);
+    }
+}
+
+class Book extends Item{
+
+    public Book(String name){
+        super(name, 200, 0, 0);
+    }
+}
+
+
