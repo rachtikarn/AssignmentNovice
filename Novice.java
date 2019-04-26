@@ -5,11 +5,13 @@ public class Novice{
     private int exp;
     private int hp;
     private int mana;
+    private int count;
     private Bag bag;
 
     public Novice (String name,String job){
         this.name=name;
         this.job=job;
+        this.count=0;
         if(job.equals("Swordman")) {
             this.hp=3000;
             this.mana=500;
@@ -38,6 +40,9 @@ public class Novice{
     public void decreaseMANA(int value){
         mana = mana - value;
     }
+    public void increaseCount() {
+    	this.count = this.count+1;
+    }
     public int useItem(String nameItem) {
     	return bag.useItem(nameItem);
     }
@@ -63,5 +68,8 @@ public class Novice{
     }
     public int getMana() {
     	return mana;
+    }
+    public int getCount() {
+    	return count;
     }
 }

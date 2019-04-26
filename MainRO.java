@@ -65,6 +65,11 @@ public class MainRO extends JFrame {
 		lblMana.setBounds(419, 198, 56, 16);
 		contentPane.add(lblMana);
 		
+		JLabel lblNUmber = new JLabel("Number:");
+		lblNUmber.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNUmber.setBounds(419, 230, 63, 16);
+		contentPane.add(lblNUmber);
+		
 		JLabel lblNameValue = new JLabel("New label");
 		lblNameValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNameValue.setBounds(498, 78, 79, 16);
@@ -88,6 +93,11 @@ public class MainRO extends JFrame {
 		lblManaValue.setBounds(498, 199, 79, 16);
 		lblManaValue.setText(""+novice.getMana());
 		contentPane.add(lblManaValue);
+		
+		JLabel lblNumberValue = new JLabel("0");
+		lblNumberValue.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNumberValue.setBounds(498, 228, 56, 16);
+		contentPane.add(lblNumberValue);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -117,6 +127,25 @@ public class MainRO extends JFrame {
 		btnPower.setBounds(378, 276, 107, 25);
 		contentPane.add(btnPower);
 		
+		JLabel lblExpMonster = new JLabel("EXP:");
+		lblExpMonster.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblExpMonster.setBounds(699, 375, 56, 16);
+		contentPane.add(lblExpMonster);
+		
+		JLabel lblMonter = new JLabel("250");
+		lblMonter.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMonter.setBounds(755, 375, 56, 16);
+		contentPane.add(lblMonter);
+		
+		JLabel lblAttackMonster = new JLabel("ATK:");
+		lblAttackMonster.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAttackMonster.setBounds(699, 414, 56, 16);
+		contentPane.add(lblAttackMonster);
+		
+		JLabel lblAttack = new JLabel("200");
+		lblAttack.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAttack.setBounds(755, 414, 56, 16);
+		contentPane.add(lblAttack);
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setIcon(new ImageIcon("D:\\karn_work\\java\\Assignment-GUI\\img\\porling.png"));
@@ -128,8 +157,13 @@ public class MainRO extends JFrame {
 			public void itemStateChanged(ItemEvent arg0) {
 				if(cbbMonster.getSelectedItem().toString().equals("Pupa")) {
 					btnNewButton.setIcon(new ImageIcon("D:\\karn_work\\java\\Assignment-GUI\\img\\pupa.png"));
+					lblAttack.setText("500");
+					lblMonter.setText("300");
+					
 				}else {
 					btnNewButton.setIcon(new ImageIcon("D:\\karn_work\\java\\Assignment-GUI\\img\\porling.png"));
+					lblAttack.setText("200");
+					lblMonter.setText("250");
 				}
 			}
 		});
@@ -155,15 +189,19 @@ public class MainRO extends JFrame {
 					novice.decreaseHP(500);
 					novice.increaseEXP(300);
 					novice.decreaseMANA(200);
+					novice.increaseCount();
 					
 				}else {
 					novice.decreaseHP(200);
 					novice.increaseEXP(250);
 					novice.decreaseMANA(200);
+					novice.increaseCount();
 				}
 				lblExpValue.setText(""+novice.getExp());
 				lblHpValue.setText(""+novice.getHp());
 				lblManaValue.setText(""+novice.getMana());
+				lblNumberValue.setText(""+novice.getCount());
+				
 				if(novice.getHp()<=0){
 					lblHpValue.setText("0");
 				}
@@ -176,9 +214,9 @@ public class MainRO extends JFrame {
 		btnBattle.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnBattle.setBounds(559, 277, 107, 25);
 		contentPane.add(btnBattle);
-
+		
+		
 		
 		
 	}
-
 }

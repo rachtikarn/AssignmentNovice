@@ -34,10 +34,10 @@ public class SelectJob extends JFrame {
 		btnSW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Sex.equals("Female")) {
-					pathImg="D:\\karn_work\\java\\Assignment-GUI\\img\\SwordmanF.png";
+					pathImg="C:\\Users\\YOT-ANAN TIAOSAKUN\\eclipse-workspace\\Assignment-GUI\\img\\SwordmanF.png";
 				}
 				else {
-					pathImg="D:\\karn_work\\java\\Assignment-GUI\\img\\SwordmanM.png";	
+					pathImg="C:\\Users\\YOT-ANAN TIAOSAKUN\\eclipse-workspace\\Assignment-GUI\\img\\SwordmanM.png";	
 				}
 				novice = new Novice(name,"Swordman");
 				MainRO mainRO = new MainRO("Main Menu", novice,pathImg);
