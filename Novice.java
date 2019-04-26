@@ -1,38 +1,45 @@
 
 public class Novice{
     private String name;
-    protected int exp;
-    protected int hp;
-    protected int mana;
+    private String job;
+    private int exp;
+    private int hp;
+    private int mana;
     private Bag bag;
 
-    public Novice (String name){
+    public Novice (String name,String job){
         this.name=name;
-        this.exp=exp;
-        this.hp=hp;
-        this.mana=mana;
+        this.job=job;
+        if(job.equals("Swordman")) {
+            this.hp=3000;
+            this.mana=500;
+        }else {
+        	  this.hp=1500;
+              this.mana=2500;
+        }
+        this.exp=0;
         this.bag = new Bag();
+        bag.addItem("Hamberger");
+        bag.addItem("Water");
+        bag.addItem("Book");
     }
-    /*public Novice (String name, int exp, int hp, int mana){
-        this.name=name;
-        this.exp=exp;
-        this.hp=hp;
-        this.mana=mana;
-    }*/
-    public void increaseEXP(int exp){
-        this.exp =+ exp;
+    public void increaseEXP(int value){
+       exp = exp+ value;
     }
-    public void increaseHP(int heal){
-        hp = hp + heal;
+    public void increaseHP(int value){
+        hp = hp + value;
     }
-    public void decreaseHP(int damage){
-        hp = hp - damage;
+    public void decreaseHP(int value){
+        hp = hp - value;
     }
-    public void increaseMANA(int reset){
-        mana = mana + reset;
+    public void increaseMANA(int value){
+        mana = mana + value;
     }
-    public void decreaseMANA(int power){
-        mana = mana - power;
+    public void decreaseMANA(int value){
+        mana = mana - value;
+    }
+    public int useItem(String nameItem) {
+    	return bag.useItem(nameItem);
     }
     public void showInfo(){
         System.out.println("------------------");
@@ -42,43 +49,19 @@ public class Novice{
         System.out.println("Mana : "+this.mana);
         System.out.println("------------------");
     }
-    public int swordmanHP(int heal){
-        return hp = 2000;
+    public String getName() {
+    	return this.name;
     }
-    public int allEXP(int exp){
-        return exp = 0;
+    public String getJob() {
+    	return this.job;
     }
-    public int allMANA(int reset){
-        return mana = 300;
+    public int getHp() {
+    	return hp;
     }
-    public int thiefHP(int heal){
-        return hp = 500;
+    public int getExp() {
+    	return exp;
     }
-    public void addItem(String itemName){
-        this.bag.addItem(itemName);
+    public int getMana() {
+    	return mana;
     }
-    public void showItems(){
-        this.bag.showItem();
-    }
-
-}
-
-class Thief extends Novice{
-
-    public Thief(String name){
-        super(name);
-    }
-    /*public Thief(String name,int exp, int hp, int mana){
-        super(name, 0, 500, 300);
-    }*/
-}
-
-class Swordman extends Novice{
-
-    public Swordman(String name){
-        super(name);
-    }
-    /*public Swordman(String name, int exp, int hp, int mana){
-        super(name, 0, 2000, 300);
-    }*/
 }

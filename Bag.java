@@ -19,6 +19,17 @@ public class Bag{
             this.items.add(new Book(name));
         }
     }
+    public int useItem(String name){
+        if(name.equals("Hamberger")){
+           return this.items.get(0).getHP();
+        }
+        else if(name.equals("Water")){
+            return this.items.get(1).getMana();
+        }
+        else{
+            return this.items.get(2).getEXP();
+        }
+    }
     public void showItem(){
         System.out.println("------------------");
         for(int i=0; i<items.size(); i++){

@@ -18,6 +18,15 @@ public class Item{
         System.out.println("Mana : "+this.mana);
         System.out.print("\n");
     }
+    public int getHP() {
+    	return this.hp;
+    }
+    public int getMana() {
+    	return this.mana;
+    }
+    public int getEXP() {
+    	return this.exp;
+    }
 }
 
 class Hamberger extends Item{
